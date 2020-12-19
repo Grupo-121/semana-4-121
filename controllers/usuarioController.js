@@ -77,12 +77,12 @@ module.exports = {
                     let tokenReturn = await token.encode(user.id, user.rol);
                     res.status(200).json({ user, tokenReturn });
                 } else {
-                    res.status(401).json();//.send({
+                    res.status(401).send({ auth: false, accessToken: null, reason: "Invalid Password!" });//.send({
                     //     message: 'Password Incorrecto'
                     // });
                 }
             } else {
-                res.status(404).json();//.send({
+                res.status(404).send('User Not Found.');//.send({
                 //     message: 'No existe el usuario'
                 // });
             }

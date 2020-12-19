@@ -4,7 +4,8 @@ module.exports = {
     add: async(req, res, next) => {
         try {
             const reg = await models.Categoria.create(req.body);
-            res.status(200).json();
+            res.status(200).json(reg);
+            // return res.status
         } catch (e) {
             res.status(500).send({
                 message: 'Ocurrió un error'
@@ -25,7 +26,6 @@ module.exports = {
     },
     update: async(req, res, next) => {
         try {
-
             const reg = await models.Categoria.update({ nombre: req.body.nombre, descripcion: req.body.descripcion }, { where: { id: req.body.id } });
             res.status(200).json();
         } catch (e) {
@@ -37,7 +37,7 @@ module.exports = {
     },
     activate: async(req, res, next) => {
         try {
-            console.log(req.body.id);
+            // console.log(req.body.id);
             const reg = await models.Categoria.update({ estado: 1 }, { where: { id: req.body.id } });
             res.status(200).json();
         } catch (e) {

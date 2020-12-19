@@ -1,7 +1,7 @@
 const routerx = require('express-promise-router');
-const articuloRouter = require('./api/articulos');
-const usuarioRouter = require('./api/usuarios');
-const categoriaRouter = require('./api/categorias');
+const articuloRouter = require('./articulo');
+const usuarioRouter = require('./usuario');
+const categoriaRouter = require('./categoria');
 const router = routerx();
 
 router.use('/articulo',articuloRouter);
